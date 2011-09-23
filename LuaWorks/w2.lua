@@ -15,7 +15,10 @@ end
 
 -- write your own function here
 --
-
+local function hi(n) 
+    local varY = (5 * n / 4) + 500
+    return varY
+end
 
 
 run = function()
@@ -32,6 +35,11 @@ run = function()
    -- call your function to do calculation
 
    -- and put result on WorkPad2
+    local hi1 = hi(56)
+    local hi2 = hi(7457)
+    local hi3 = hi(900)
 
+    WorkPad2:setText(hi1 .. ", " .. hi2 .. ", " .. hi3)
 
+ 
 end
