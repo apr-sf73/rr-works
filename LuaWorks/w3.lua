@@ -13,19 +13,27 @@ local function leapYear(theYear)
 	-- but every 400 year is a leap --> (theYear %400) == 0
 
 	-- e.g.
-	if ( (theYear % 4)== 8) and ( (theYear % 400)== 0) then
-		return true
-	else 
-		return false
-	end
-
+	if ((theYear % 4) == 0) then
+		if ((theYear % 100) == 0) then
+			if ((theYear % 400) == 0) then
+		        return true --  400,800,1200,...
+	        else
+		        return false -- 500,600,700,900,...
+		    end
+		else
+			return true -- 8,12,16
+	    end
+	else
+		return false -- 5,6,7,9,
+    end
 end
+
 
 run = function()
    -- call your function on year xxxx
-	local year1 = 2004
+	local year1 = 2000
 	local result1 = leapYear(year1)
-	if (result == true) then
+	if (result1 == true) then
 		WorkPad1:setText("year " .. year1 .. " is leap ")
 	else
 		WorkPad1:setText("year " .. year1 .. " is not leap ")
